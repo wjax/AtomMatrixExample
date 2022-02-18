@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <NanoFrameworkProjectSystemPath>$(MSBuildExtensionsPath)\nanoFramework\v1.0\</NanoFrameworkProjectSystemPath>
+  </PropertyGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.Default.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{11A8DD76-328B-46DF-9F39-F559912D0360};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>62aa4d3c-1625-486e-9020-87c800aba14a</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>NanoComms</RootNamespace>
+    <AssemblyName>NanoComms</AssemblyName>
+    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
+  <ItemGroup>
+    <Compile Include="Base\CircularBuffer.cs" />
+    <Compile Include="Base\CircularByteBuffer4Comms.cs" />
+    <Compile Include="Base\ConnUri.cs" />
+    <Compile Include="Base\ICommsQueue.cs" />
+    <Compile Include="CommEquipmentObject.cs" />
+    <Compile Include="Communicators\CommunicatorBase.cs" />
+    <Compile Include="FrameWrappers\FrameWrapperBase.cs" />
+    <Compile Include="FrameWrappers\SyncFrameWrapper.cs" />
+    <Compile Include="Communicators\ICommunicator.cs" />
+    <Compile Include="Helper\ByteTools.cs" />
+    <Compile Include="Helper\DataRateCalc.cs" />
+    <Compile Include="Helper\MovingAverage.cs" />
+    <Compile Include="Helper\TimeTools.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Communicators\TCPNETCommunicator.cs" />
+    <Compile Include="TcpSocketFactoryWithTimeout.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FrameWrappers\ProtoBuf\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <HintPath>..\packages\nanoFramework.CoreLibrary.1.12.0-preview.5\lib\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="nanoFramework.Logging">
+      <HintPath>..\packages\nanoFramework.Logging.1.0.1-preview.19\lib\nanoFramework.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="nanoFramework.Runtime.Events">
+      <HintPath>..\packages\nanoFramework.Runtime.Events.1.10.0-preview.6\lib\nanoFramework.Runtime.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="nanoFramework.Runtime.Native">
+      <HintPath>..\packages\nanoFramework.Runtime.Native.1.5.4-preview.3\lib\nanoFramework.Runtime.Native.dll</HintPath>
+    </Reference>
+    <Reference Include="nanoFramework.System.Collections">
+      <HintPath>..\packages\nanoFramework.System.Collections.1.4.0-preview.14\lib\nanoFramework.System.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="nanoFramework.System.Text">
+      <HintPath>..\packages\nanoFramework.System.Text.1.1.3-preview.13\lib\nanoFramework.System.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Stopwatch">
+      <HintPath>..\packages\nanoFramework.System.Diagnostics.Stopwatch.1.0.289-preview.1\lib\System.Diagnostics.Stopwatch.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Math">
+      <HintPath>..\packages\nanoFramework.System.Math.1.4.4-preview.13\lib\System.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net">
+      <HintPath>..\packages\nanoFramework.System.Net.1.8.0-preview.26\lib\System.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading">
+      <HintPath>..\packages\nanoFramework.System.Threading.1.0.4-preview.14\lib\System.Threading.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
+  <ProjectExtensions>
+    <ProjectCapabilities>
+      <ProjectConfigurationsDeclaredAsItems />
+    </ProjectCapabilities>
+  </ProjectExtensions>
+</Project>
